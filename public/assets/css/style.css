@@ -1,0 +1,67 @@
+* {
+	box-sizing: border-box;
+}
+
+/*Header content class to center title with google sans font*/
+.header-content {
+	position: relative;
+	text-align: center;
+	font-weight: bold;
+	font-family: open sans;
+	padding: 15px;
+	color: #fff;
+	background: #00aae7;
+}
+
+/* Splitting page into thirds to fill with required content */
+
+.col {
+	float: left;
+	padding: 10px;
+	height: 600px;
+}
+
+.left {
+	width: 66.66%;
+	background: #444;
+}
+
+.right {
+	width: 33.33%;
+	background: #aaa;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/* Left column */
+/* News banner text, should be temporary as client would probably want an image in here */
+.banner {
+	position: relative;
+	min-height: 175px;
+	text-align: center;
+	font-weight: bold;
+	font-family: open sans;
+	padding: 40px;
+	color: #fff;
+	background-color: #00aae7;
+}
+
+.search-bar {
+	position: relative;
+	font-family: open sans;
+	padding: 20px;
+	color: #fff;
+}
+
+/* Shopping cart stuff */
+.cart-title {
+	font-size: 20px;
+	font-weight: bold;
+	font-family: open sans;
+	margin-bottom: 10px;
+}
