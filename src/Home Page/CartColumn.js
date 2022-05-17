@@ -12,6 +12,7 @@ import {
 	GetProduct,
 } from './../Handlers/HTTPRequest.js'
 
+// CartItem Object, this decides the look of each list item in the cart
 class CartItem extends React.Component {
 	constructor(props) {
 		super(props)
@@ -57,9 +58,9 @@ class CartItem extends React.Component {
 	}
 }
 
+//This class is only to shorten the code in the main cart class and easily allow for theoretically infinite items in the cart
 class CartItems extends React.Component {
 	render() {
-		console.log(this.props.products)
 		var objects = []
 		for (var i = 0; i < this.props.cartLength; i++) {
 			objects.push(
@@ -76,6 +77,7 @@ class CartItems extends React.Component {
 	}
 }
 
+// Overall Cart Class, decides the look of the cart module (the rounded white box which the items are drawn on)
 class Cart extends React.Component {
 	render() {
 		if (this.props.cartLength > 0) {
@@ -112,14 +114,20 @@ class Cart extends React.Component {
 						bgcolor: 'background.paper',
 						borderRadius: '16px',
 					}}
-					component='img'
-					src='https://i.imgur.com/U6nF1pz.png'
-				/>
+				>
+					<Typography
+						variant='h5'
+						sx={{ fontWeight: 'bold' }}
+					>
+						No Products Found
+					</Typography>
+				</Box>
 			)
 		}
 	}
 }
 
+//The right column of the site, housing the cart and the total price
 class CartColumn extends React.Component {
 	constructor(props) {
 		super(props)
@@ -132,6 +140,7 @@ class CartColumn extends React.Component {
 			this.increaseCartTotal.bind(this)
 	}
 
+	//When the component is loaded we update the cart to get the current items
 	componentDidMount() {
 		this.updateCart()
 	}
@@ -144,6 +153,8 @@ class CartColumn extends React.Component {
 		})
 	}
 
+	//Increasing the total value to be displayed later (the reason I done this is because I don't want to
+	//make extra calls to the API as that takes time and could be a worse experience for the user)
 	increaseCartTotal(value) {
 		this.setState({
 			cartTotal: this.state.cartTotal + value,
@@ -152,6 +163,7 @@ class CartColumn extends React.Component {
 
 	render() {
 		return (
+			// Background box
 			<Box
 				sx={{
 					p: 2.5,

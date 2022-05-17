@@ -13,6 +13,7 @@ import {
 } from './../Handlers/HTTPRequest'
 import ProductView from './ProductView'
 
+// Class to manage searching
 class SearchForm extends React.Component {
 	constructor(props) {
 		super(props)
@@ -22,10 +23,12 @@ class SearchForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
+	//Whenever the search bar is changed, this function is called updating the module state
 	handleChange(event) {
 		this.setState({ value: event.target.value })
 	}
 
+	// When the search button is clicked we send the information up to the main class, the preventDefault prevents the page from refreshing
 	handleSubmit(event) {
 		event.preventDefault()
 
@@ -67,6 +70,7 @@ class SearchForm extends React.Component {
 	}
 }
 
+//Simple banner currently, can easily be replaced with an image or carousel if reqquired
 class Banner extends React.Component {
 	render() {
 		return (
@@ -88,6 +92,7 @@ class Banner extends React.Component {
 	}
 }
 
+//The left side of the site, containing an advertising banner, search bar and the product list
 class ProductColumn extends React.Component {
 	constructor(props) {
 		super(props)
@@ -98,10 +103,13 @@ class ProductColumn extends React.Component {
 
 		this.handleSearch = this.handleSearch.bind(this)
 	}
+
+	//Load products when the page first loads
 	componentDidMount() {
 		this.handleSearch('')
 	}
 
+	//Update the products when the search bar is updated, if there is no search value we just get the reccomended products
 	async handleSearch(searchText) {
 		this.setState({ searchValue: searchText })
 
@@ -118,6 +126,7 @@ class ProductColumn extends React.Component {
 		}
 	}
 
+	//Simple rendering of a 2/3rds size box with contents
 	render() {
 		return (
 			<Box

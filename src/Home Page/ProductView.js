@@ -6,6 +6,8 @@ import {
 } from '@mui/material'
 import * as React from 'react'
 
+// Class for managing the look of each product in the shop grid.
+//Separating it makes it easier to read and allows for easy duplication
 class ProductItem extends React.Component {
 	render() {
 		return (
@@ -14,6 +16,7 @@ class ProductItem extends React.Component {
 				item
 				md={4}
 			>
+				{/* Image Box*/}
 				<Box
 					sx={{
 						width: '100%',
@@ -22,15 +25,21 @@ class ProductItem extends React.Component {
 					component='img'
 					src={this.props.product['defaultImage']}
 				/>
+
+				{/* Product Name */}
 				<Typography
 					variant='h6'
 					sx={{ fontWeight: 'bold' }}
 				>
 					{this.props.product['name']}
 				</Typography>
+
+				{/* Product Description */}
 				<Typography variant='body1'>
 					{this.props.product['description']}
 				</Typography>
+
+				{/* Product Price */}
 				<Typography
 					variant='h5'
 					sx={{
@@ -40,6 +49,7 @@ class ProductItem extends React.Component {
 				>
 					${this.props.product['price']}
 				</Typography>
+
 				<Button variant='contained'>
 					Add to Cart
 				</Button>
@@ -48,6 +58,7 @@ class ProductItem extends React.Component {
 	}
 }
 
+// Class to group all the items into an easy to render array for the productView class
 class ProductItems extends React.Component {
 	render() {
 		var objects = []
@@ -63,6 +74,7 @@ class ProductItems extends React.Component {
 	}
 }
 
+//Manages the look of the ProductView Module (spacing, amount of items etc)
 class ProductView extends React.Component {
 	render() {
 		if (this.props.products.length > 0) {
@@ -74,6 +86,7 @@ class ProductView extends React.Component {
 				</Grid>
 			)
 		} else {
+			/* If no items are found (whether nothing returned from search or API issues) we display "No products found" */
 			return (
 				<Typography
 					variant='h5'

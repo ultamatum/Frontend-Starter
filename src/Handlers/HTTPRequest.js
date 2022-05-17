@@ -1,3 +1,5 @@
+// Handler class to manage any HTTP requests that may be needed
+
 async function SendRequest(url) {
 	const response = await fetch(
 		`http://localhost:8080/${url}`

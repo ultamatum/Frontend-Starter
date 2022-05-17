@@ -3,6 +3,7 @@ import { Grid } from '@mui/material'
 import ProductColumn from './Home Page/ProductColumn.js'
 import CartColumn from './Home Page/CartColumn.js'
 
+// Header section of the site, can be replaced with a logo or whatever the client requires
 class Header extends React.Component {
 	render() {
 		return (
@@ -15,6 +16,7 @@ class Header extends React.Component {
 	}
 }
 
+//Root of the site, currently split into 1/3 2/3 but can easily be changed
 function Root() {
 	return (
 		<div className='App'>
